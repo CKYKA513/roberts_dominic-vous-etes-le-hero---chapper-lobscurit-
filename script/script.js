@@ -230,17 +230,12 @@ function goToChapter(chapterName) {
 
     for (let index = 0; index < optionsArr.length; index++) {
         // optionsArr[index].appendChild(addButton);
-        console.log(optionsArr[index].text);
-        barreOption.innerHTML = element[index];
-        element = `<button class="${optionsArr[index]}">${optionsArr[index].text}</button>`;
-        barreOption.innerHTML.onclick = function() {
-            console.log("allo");
-            optionsArr[index].action;
-        };
-        // button[index].textContent = optionsArr[index].text; 
-        
-    }
 
+        console.log(optionsArr[index].text);
+        element = `<button onclick="(${optionsArr[index].action})>${optionsArr[index].text}</button>`; 
+        }
+
+    barreOption.innerHTML = element;
 
 
     // console.log(optionsArr.length);
