@@ -229,43 +229,8 @@ function goToChapter(chapterName) {
     let element = ""; 
 
     for (let index = 0; index < optionsArr.length; index++) {
-        // optionsArr[index].appendChild(addButton);
-
         console.log(optionsArr[index].text);
-        element = `<button onclick="(${optionsArr[index].action})>${optionsArr[index].text}</button>`; 
+        element += `<button onclick="${optionsArr[index].action}">${optionsArr[index].text}</button>`; 
         }
-
     barreOption.innerHTML = element;
-
-
-    // console.log(optionsArr.length);
-
-    // let optionsNbr = optionsArr.length;
-    // console.log(optionsNbr);
-
-
-
-    // console.log(optionsArr[0].text);
-
-    // console.log(optionsArr[0]);
-    // let option1 = optionsArr[0];
-    // document.querySelector('.boutton1') = option1.text;
-    // console.log(optionsArr[1]);
-    // console.log(optionsArr[2]);
-
-    // boutton1.textContent = optionsArr[1];
-    // boutton2.textContent = optionsArr[2];
-    // boutton3.textContent = optionsArr[3];
-
-    // if (optionsNbr == 4) {
-    //     document.querySelector('barre_option').appendChild(button);
-    // } 
-        // let whichNbr = Number(which);
-        // console.log(whichNbr);
-        // console.log(typeof whichNbr);
-    // }
-    
-    
-    
-
 };
