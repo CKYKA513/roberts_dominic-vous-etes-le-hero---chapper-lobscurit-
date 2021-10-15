@@ -47,30 +47,12 @@ const chaptersObj = {
         options: [
             ({
                 text: "continuer",
-                action: "goToChamber('la_chambre')",
+                action: "goToChapter('la_chambre')",
             })
         ]
     },
 
-    internet: {
-        subtitle: "Internet",
-        text: "Wahouuu le web!!!",
-        img: "../assets/image/chambre.png",
-        options: [
-            ({
-                text: "réseaux sociaux",
-                action: "goToChapter('reseaux_sociaux')",
-            }),
-            ({
-                text: "image board",
-                action: "goToChapter('image_board')",
-            }),
-            ({
-                text: "silk road",
-                action: "goToChapter('silk_road')",
-            }),
-        ],
-    },
+    // internet
 
     reseaux_sociaux: {
         subtitle: "reseaux sociaux",
@@ -87,20 +69,53 @@ const chaptersObj = {
             }),
             ({
                 text: "retour",
-                action: "goToChapter('"
-            })
+                action: "goToChapter('la_chambre')",
+            }),
         ],
     },
 
     image_board: {
         subtitle: "image board",
+        text: "",
+        img: "",
+        options: [
+            ({
+                text: "reseaux sociaux",
+                action: "goToChapter('reseaux_sociaux')",
+            }),
+            ({
+                text: "silk road",
+                action: "goToChapter('silk_road')",
+            }),
+            ({
+                text: "retour",
+                action: "goToChapter('la_chambre')",
+            }),
+        ],
     },
 
     silk_road: {
         subtitle: "silk road",
+        text: "",
+        img: "",
+        options: [
+            ({
+                text: "reseaux sociaux",
+                action: "goToChapter('reseaux_sociaux')",
+            }),
+            ({
+                text: "image board",
+                action: "goToChapter('image_board')",
+            }),
+            ({
+                text: "retour",
+                action: "goToChapter('la_chambre')",
+            }),
+        ],
     },
 
     // la cuisine
+
     la_cuisine: {
         subtitle: "La cuisine",
         text: "Peut-être que je devrais manger un petit quelque chose, mais en même temps je n'ai pas très faim.",
@@ -115,9 +130,13 @@ const chaptersObj = {
                 action: "goToChapter('le_frigo')"
             }),
             ({
+                text: "aller dans le salon",
+                action: "goToChapter('le_salon')",
+            }),
+            ({
                 text: "retourner dans la chambre",
                 action: "goToChapter('la_chambre')",
-            })
+            }),
         ],
     },
 
@@ -133,13 +152,34 @@ const chaptersObj = {
         ],
     },
 
+    // mini-jeu du frigo
+
     le_frigo: {
         subtitle: "Le frigo",
         text: "Je devrais peut-être manger? mais en même temps je n'ai tellement pas faim",
         img: "../assets/image/chambre.png",
+        options: [
+            // le joueur devrait pouvoir prendre de la nourriture
+            // chaque option est un aliment 
+            // le joueur a un meter et lorsqu'il atteint 0
+            // le personnage vomit et se réveille dans la chambre
+        ],
+    },
+
+    vomi: {
+        subtitle: "BEEEUUUUAAARRRGGH!!!!!",
+        text: "J'ai encore trop mangé...",
+        img: "",
+        options: [
+            ({
+                text: "continuer",
+                action: "goToChapter('la_chambre')",
+            }),
+        ],
     },
 
     // le salon
+
     le_salon: {
         subtitle: "Le salon",
         text: "Encore une bonne opportunitée de perdre du temps",
@@ -153,19 +193,88 @@ const chaptersObj = {
                 text: "Regarder la télévision",
                 action: "goToChapter('la_television')",
             }),
+            ({
+                text: "aller dans la cuisine",
+                action: "goToChapter('la_cuisine')",
+            }),
+            ({
+                text: "aller dans la chambre",
+                action: "goToChapter('la_chambre')",
+            }),
         ],
     },
+
+    // trip
 
     bonbon: {
         subtitle: "Bonbon",
         text: "Bon, j'y retourne.",
     },
 
+    // tv
+
     la_television: {
         subtitle: "La télévision",
         text: "Je pourrais éteindre mon cerveau pour quelque heures.",
         img: "../assets/image/chambre.png",
     },
+
+    canal_nouvelle: {
+        subtitle: "les nouvelles",
+        text: "",
+        img: "",
+        options: [
+            ({
+                text: "zap",
+                action: "goToChapter('canal_nature')",
+            }),
+            ({
+                text: "arreter de regarder la télé",
+                action: "goToChapter('le_salon')",
+            }),
+        ],
+    },
+
+    canal_nature: {
+        subtitle: "canal nature",
+        text: "wow, la nature...",
+        img: "",
+        options: [
+            ({
+                text: "zap",
+                action: "goToChapter('canal_cartoon')",
+            }),
+            ({
+                text: "arreter de regarder la télé",
+                action: "goToChapter('le_salon')",
+            }),
+        ]
+    },
+
+    canal_cartoon: {
+        subtitle: "cartoon network",
+        text: "",
+        img: "",
+        options: [
+            ({
+                text: "zap",
+                action: "goToChapter('canal_reality')",
+            }),
+            ({
+                text: "arreter de regarder la télé",
+                action: "goToChapter('le_salon')",
+            }),
+        ],
+    },
+
+    canal_reality: {
+        subtitle: "a reality show",
+        text: "",
+        options: [],
+    },
+
+
+    // vers la fin
 
     la_porte: {
         subtitle: "La porte",
@@ -184,6 +293,7 @@ const chaptersObj = {
     },
 
     //fin
+
     la_fin: {
         subtitle: "*silence*",
         text: "Enfin, le délicieux silence de la fin.",
