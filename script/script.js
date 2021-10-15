@@ -1,5 +1,18 @@
 console.log("allo");
 
+let candyBought = false;
+
+function buyCandy() {
+    candyBought = true;
+}
+
+function actionSpecial() {
+    if (candyBought == true) {
+        goToChapter('le_salon_avec_bonbon');
+    } else {
+        goToChapter('le_salon_sans_bonbon');
+    }
+}
 
 const chaptersObj = {
 
@@ -23,7 +36,7 @@ const chaptersObj = {
             }),
             ({
                 text: "Allé dans le salon",
-                action: "goToChapter('le_salon')",
+                action: "actionSpecial()",
             }),
           ],
     },
@@ -111,6 +124,11 @@ const chaptersObj = {
                 text: "retour",
                 action: "goToChapter('la_chambre')",
             }),
+            // action spécial
+            ({
+                text: "acheter des bonbons",
+                action: "buyCandy()",
+            }),
         ],
     },
 
@@ -131,7 +149,7 @@ const chaptersObj = {
             }),
             ({
                 text: "aller dans le salon",
-                action: "goToChapter('le_salon')",
+                action: "actionSpecial()",
             }),
             ({
                 text: "retourner dans la chambre",
@@ -180,18 +198,38 @@ const chaptersObj = {
 
     // le salon
 
-    le_salon: {
+    le_salon_sans_bonbon: {
+        subtitle: "Le salon1",
+        text: "Encore une bonne opportunitée de perdre du temps",
+        img: "../assets/image/chambre.png",
+        options: [
+            ({
+                text: "Regarder la télévision",
+                action: "goToChapter('canal_nouvelle')",
+            }),
+            ({
+                text: "aller dans la cuisine",
+                action: "goToChapter('la_cuisine')",
+            }),
+            ({
+                text: "aller dans la chambre",
+                action: "goToChapter('la_chambre')",
+            }),
+        ],
+    },
+
+    le_salon_avec_bonbon: {
         subtitle: "Le salon",
         text: "Encore une bonne opportunitée de perdre du temps",
         img: "../assets/image/chambre.png",
         options: [
             ({
                 text: "Manger des bonbons",
-                action: "goToChapter('bonbons')",
+                action: "goToChapter('bonbon')",
             }),
             ({
                 text: "Regarder la télévision",
-                action: "goToChapter('la_television')",
+                action: "goToChapter('canal_nouvelle')",
             }),
             ({
                 text: "aller dans la cuisine",
@@ -209,6 +247,7 @@ const chaptersObj = {
     bonbon: {
         subtitle: "Bonbon",
         text: "Bon, j'y retourne.",
+        img: "",
     },
 
     // tv
@@ -230,7 +269,7 @@ const chaptersObj = {
             }),
             ({
                 text: "arreter de regarder la télé",
-                action: "goToChapter('le_salon')",
+                action: "actionSpecial()",
             }),
         ],
     },
@@ -246,7 +285,7 @@ const chaptersObj = {
             }),
             ({
                 text: "arreter de regarder la télé",
-                action: "goToChapter('le_salon')",
+                action: "actionSpecial()",
             }),
         ]
     },
@@ -262,7 +301,7 @@ const chaptersObj = {
             }),
             ({
                 text: "arreter de regarder la télé",
-                action: "goToChapter('le_salon')",
+                action: "actionSpecial()",
             }),
         ],
     },
@@ -270,7 +309,16 @@ const chaptersObj = {
     canal_reality: {
         subtitle: "a reality show",
         text: "",
-        options: [],
+        options: [
+            ({
+                text: "zap",
+                action: "goToChapter('canal_nouvelle')",
+            }),
+            ({
+                text: "arreter de regarder la télé",
+                action: "actionSpecial()",
+            }),
+        ],
     },
 
 
