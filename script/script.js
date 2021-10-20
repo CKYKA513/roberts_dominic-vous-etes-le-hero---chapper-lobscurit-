@@ -377,17 +377,12 @@ function goToChapter(chapterName) {
     document.querySelector('.texte').textContent = chapitre.text;
     document.querySelector('.image').src = chapitre.img;
 
-    let button = document.querySelectorAll('button');
     let barreOption = document.querySelector('.barre_option');
     let optionsArr = chapitre.options;
-    console.log(optionsArr[0].action);
-    const addButton = document.createElement("button");
-    console.log(optionsArr.length);
 
     let element = ""; 
 
     for (let index = 0; index < optionsArr.length; index++) {
-        console.log(optionsArr[index].text);
         element += `<button onclick="${optionsArr[index].action}">${optionsArr[index].text}</button>`; 
         }
     barreOption.innerHTML = element;
