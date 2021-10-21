@@ -383,7 +383,10 @@ function goToChapter(chapterName) {
     let element = ""; 
 
     for (let index = 0; index < optionsArr.length; index++) {
+        console.log(optionsArr[index].text);
         element += `<button onclick="${optionsArr[index].action}">${optionsArr[index].text}</button>`; 
         }
     barreOption.innerHTML = element;
 };
+
+goToChambre('la_chambre');
