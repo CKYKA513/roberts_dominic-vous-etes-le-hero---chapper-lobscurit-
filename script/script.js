@@ -248,7 +248,125 @@ const chaptersObj = {
         subtitle: "Bonbon",
         text: "Bon, j'y retourne.",
         img: "",
+        options: [
+            ({
+                text: "continuer",
+                action: "",
+            }),
+            ({
+                text: "mourrir",
+                action: "goToChapter('la_fin')",
+            }),
+        ],
     },
+
+    salon_trip: {
+        subtitle: "salon",
+        text: "",
+        img: "",
+        options: [
+            ({
+                text: "aller dans la chambre",
+                action: "goToChapter('chambre_trip')",
+            }),
+            ({
+                text: "aller dans la cuisine",
+                action: "goToChapter('couloir_trip')",
+            }),
+            ({
+                text: "regarder la télé",
+                action: "goToChapter('télé_trip')",
+            }),
+        ],
+    },
+
+    chambre_trip: {
+        subtitle: "la chambre",
+        text: "",
+        img: "",
+        options: [
+
+        ],
+    },
+
+    couloir_trip: {
+        subtitle: "couloir",
+        text: "",
+        img: "",
+        options: [
+
+        ],
+    },
+
+    souvenir_un: {
+        subtitle: "la plage",
+        text: "c'est la plage ou j'allais tout les étés avec mes parents et ma soeur",
+        img: "",
+        options: [
+            ({
+                text: "zap",
+                action: "goToChapter('souvenir_deux')",
+            }),
+            ({
+                text: "arreter de regarder la télé",
+                action: "goToChapter('salon_trip')",
+            }),
+        ],
+    },
+
+    souvenir_deux: {
+        subtitle: "randonné",
+        text: "ma premiere sortie avec la femme de ma vie, probablement la plus belle journée de ma vie...",
+        img: "",
+        options: [
+            ({
+                text: "zap",
+                action: "goToChapter('souvenir_trois')",
+            }),
+            ({
+                text: "arreter de regarder la télé",
+                action: "goToChapter('salon_trip')",
+            }),
+        ],
+    },
+
+    souvenir_trois: {
+        subtitle: "la journée de mon marriage",
+        text: "tout était si merveilleux...",
+        img: "",
+        options: [
+            ({
+                text: "zap",
+                action: "goToChapter('souvenir_quatre')",
+            }),
+            ({
+                text: "arreter de regarder la télé",
+                action: "goToChapter('salon_trip')",
+            }),
+        ],
+    },
+
+    souvenir_quatre: {
+        subtitle: "graduation",
+        text: "ma graduation de l'école d'architecture",
+        img: "",
+        options: [
+            ({
+                text: "zap",
+                action: "goToChapter('souvenir_cinq')",
+            }),
+            ({
+                text: "arreter de regarder la télé",
+                action: "goToChapter('salon_trip')",
+            }),
+        ],
+    },
+
+    souvenir_cinq: {
+        subtitle: ""
+    }
+
+
 
     // tv
 
