@@ -298,6 +298,8 @@ const chaptersObj = {
         ],
     },
 
+//  souvenir tv
+
     souvenir_un: {
         subtitle: "la plage",
         text: "c'est la plage ou j'allais tout les étés avec mes parents et ma soeur",
@@ -331,8 +333,8 @@ const chaptersObj = {
     },
 
     souvenir_trois: {
-        subtitle: "la journée de mon marriage",
-        text: "tout était si merveilleux...",
+        subtitle: "graduation",
+        text: "ma graduation de l'école d'architecture",
         img: "",
         options: [
             ({
@@ -347,13 +349,13 @@ const chaptersObj = {
     },
 
     souvenir_quatre: {
-        subtitle: "graduation",
-        text: "ma graduation de l'école d'architecture",
+        subtitle: "la journée de mon marriage",
+        text: "tout était si merveilleux...",
         img: "",
         options: [
             ({
                 text: "zap",
-                action: "goToChapter('souvenir_cinq')",
+                action: "goToChapter('souvenir_un')",
             }),
             ({
                 text: "arreter de regarder la télé",
@@ -362,19 +364,7 @@ const chaptersObj = {
         ],
     },
 
-    souvenir_cinq: {
-        subtitle: ""
-    }
-
-
-
     // tv
-
-    la_television: {
-        subtitle: "La télévision",
-        text: "Je pourrais éteindre mon cerveau pour quelque heures.",
-        img: "../assets/image/chambre.png",
-    },
 
     canal_nouvelle: {
         subtitle: "les nouvelles",
@@ -487,11 +477,13 @@ const chaptersObj = {
 };
 
 function goToChapter(chapterName) {
+    let titreChapitre = document.querySelector('.titre_chapitre');
+    console.log(titreChapitre);
 
     const chapitre = chaptersObj[chapterName];
     console.log(chapitre);
 
-    document.querySelector('.titre_chapitre').textContent = chapitre.subtitle;
+    titreChapitre.textContent = chapitre.subtitle;
     document.querySelector('.texte').textContent = chapitre.text;
     document.querySelector('.image').src = chapitre.img;
 
@@ -507,4 +499,4 @@ function goToChapter(chapterName) {
     barreOption.innerHTML = element;
 };
 
-goToChambre('la_chambre');
+goToChapter('la_chambre');
