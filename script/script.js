@@ -6,7 +6,7 @@ function buyCandy() {
     candyBought = true;
 }
 
-function actionSpecial() {
+function actionSpecialBonbon() {
     if (candyBought == true) {
         goToChapter('le_salon_avec_bonbon');
     } else {
@@ -17,6 +17,7 @@ function actionSpecial() {
 const chaptersObj = {
 
     //la chambre
+    // img: chambre_2.jpg
     la_chambre: {
         subtitle: "La chambre",
         text: "Ma chambre, rien d'autre a faire que dormir et glander devant l'ordi",
@@ -36,7 +37,7 @@ const chaptersObj = {
             }),
             ({
                 text: "Allé dans le salon",
-                action: "actionSpecial()",
+                action: "actionSpecialBonbon()",
             }),
           ],
     },
@@ -133,7 +134,7 @@ const chaptersObj = {
     },
 
     // la cuisine
-
+    // img: cuisine.jpg
     la_cuisine: {
         subtitle: "La cuisine",
         text: "Peut-être que je devrais manger un petit quelque chose, mais en même temps je n'ai pas très faim.",
@@ -149,7 +150,7 @@ const chaptersObj = {
             }),
             ({
                 text: "aller dans le salon",
-                action: "actionSpecial()",
+                action: "actionSpecialBonbon()",
             }),
             ({
                 text: "retourner dans la chambre",
@@ -197,7 +198,7 @@ const chaptersObj = {
     },
 
     // le salon
-
+    // img: salon_3.jpg
     le_salon_sans_bonbon: {
         subtitle: "Le salon1",
         text: "Encore une bonne opportunitée de perdre du temps",
@@ -218,6 +219,7 @@ const chaptersObj = {
         ],
     },
 
+    // img: salon_3.jpg
     le_salon_avec_bonbon: {
         subtitle: "Le salon",
         text: "Encore une bonne opportunitée de perdre du temps",
@@ -260,6 +262,7 @@ const chaptersObj = {
         ],
     },
 
+    // img: salon_3.jpg
     salon_trip: {
         subtitle: "salon",
         text: "",
@@ -280,17 +283,57 @@ const chaptersObj = {
         ],
     },
 
+    // img: chambre_2.jpg
     chambre_trip: {
         subtitle: "la chambre",
-        text: "",
+        text: "je ressens la force de ma détresse",
         img: "",
         options: [
-
+            ({
+                text: "allé se coucher",
+                action: ""
+            })
         ],
     },
 
+    lit_trip: {
+        subtitle: "quoi faire?",
+        text: "je ne sais plus lequel est mieux...",
+        img: "",
+        options: [
+            ({
+                text: "dormir",
+                action: "goToChapter('la_chambre')",
+            }),
+            ({
+                text: "se laisser mourrir",
+                action: "goTochapter('la_fin')",
+            }),
+        ],
+    },
+
+    // img: couloir.jpg
     couloir_trip: {
         subtitle: "couloir",
+        text: "je ne me rappel pas que mon appartement soit si grand.",
+        img: "",
+        options: [
+            ({
+                text: "continuer",
+                action: "",
+            }),
+            ({
+                text: "reculer",
+                action: "salon_trip",
+            }),
+        ],
+    },
+
+//  inconscient
+
+    // img: plaine.jpg
+    plaine: {
+        subtitle: "je suis perdue",
         text: "",
         img: "",
         options: [
@@ -366,10 +409,11 @@ const chaptersObj = {
 
     // tv
 
+    // img: news.gif
     canal_nouvelle: {
         subtitle: "les nouvelles",
-        text: "",
-        img: "",
+        text: "toujours du négatif",
+        img: "assets/image/salon_3.jpg",
         options: [
             ({
                 text: "zap",
@@ -377,7 +421,7 @@ const chaptersObj = {
             }),
             ({
                 text: "arreter de regarder la télé",
-                action: "actionSpecial()",
+                action: "actionSpecialBonbon()",
             }),
         ],
     },
@@ -393,7 +437,7 @@ const chaptersObj = {
             }),
             ({
                 text: "arreter de regarder la télé",
-                action: "actionSpecial()",
+                action: "actionSpecialBonbon()",
             }),
         ]
     },
@@ -409,7 +453,7 @@ const chaptersObj = {
             }),
             ({
                 text: "arreter de regarder la télé",
-                action: "actionSpecial()",
+                action: "actionSpecialBonbon()",
             }),
         ],
     },
@@ -424,7 +468,7 @@ const chaptersObj = {
             }),
             ({
                 text: "arreter de regarder la télé",
-                action: "actionSpecial()",
+                action: "actionSpecialBonbon()",
             }),
         ],
     },
@@ -497,6 +541,13 @@ function goToChapter(chapterName) {
         element += `<button onclick="${optionsArr[index].action}">${optionsArr[index].text}</button>`; 
         }
     barreOption.innerHTML = element;
+    
+    
+    
+
+    // if (chapitre[2] = video) {
+    //     console.log('allo');
+    // }
 };
 
 goToChapter('la_chambre');
