@@ -21,7 +21,7 @@ const chaptersObj = {
     la_chambre: {
         subtitle: "La chambre",
         text: "Ma chambre, rien d'autre a faire que dormir et glander devant l'ordi",
-        img: "../assets/image/chambre.png",
+        img: "assets/image/chambre_2.jpg",
         options: [
             ({
               text: "ordinateur",
@@ -45,7 +45,7 @@ const chaptersObj = {
     le_lit: {
         subtitle: "Le lit",
         text: "Je suis tellement fatigué. Peut-être devrais-je m'étendre un petit peu",
-        img: "../assets/image/chambre.png",
+        img: "assets/image/chambre.png",
         options: [
             ({
                 text: "dormir",
@@ -57,7 +57,7 @@ const chaptersObj = {
     dormir: {
         subtitle: "Faites de beaux rêves",
         text: "Une autre journée bien satisfesante...",
-        img: "",
+        img: "assets/image/noir.jpg",
         options: [
             ({
                 text: "continuer",
@@ -138,7 +138,7 @@ const chaptersObj = {
     la_cuisine: {
         subtitle: "La cuisine",
         text: "Peut-être que je devrais manger un petit quelque chose, mais en même temps je n'ai pas très faim.",
-        img: "../assets/image/chambre.png",
+        img: "assets/image/cuisine.jpg",
         options: [
             ({
                 text: "Utiliser le couteau",
@@ -179,7 +179,7 @@ const chaptersObj = {
         img: "../assets/image/chambre.png",
         options: [
             // le joueur devrait pouvoir prendre de la nourriture
-            // chaque option est un aliment 
+            // chaque option est un aliment
             // le joueur a un meter et lorsqu'il atteint 0
             // le personnage vomit et se réveille dans la chambre
         ],
@@ -200,9 +200,9 @@ const chaptersObj = {
     // le salon
     // img: salon_3.jpg
     le_salon_sans_bonbon: {
-        subtitle: "Le salon1",
+        subtitle: "Le salon sans bonbon",
         text: "Encore une bonne opportunitée de perdre du temps",
-        img: "../assets/image/chambre.png",
+        img: "assets/image/salon_3.jpg",
         options: [
             ({
                 text: "Regarder la télévision",
@@ -221,9 +221,9 @@ const chaptersObj = {
 
     // img: salon_3.jpg
     le_salon_avec_bonbon: {
-        subtitle: "Le salon",
+        subtitle: "Le salon avec bonbon",
         text: "Encore une bonne opportunitée de perdre du temps",
-        img: "../assets/image/chambre.png",
+        img: "assets/image/salon_3.jpg",
         options: [
             ({
                 text: "Manger des bonbons",
@@ -265,8 +265,8 @@ const chaptersObj = {
     // img: salon_3.jpg
     salon_trip: {
         subtitle: "salon",
-        text: "",
-        img: "",
+        text: "je me sent étrange",
+        img: "assets/image/salon_3.jpg",
         options: [
             ({
                 text: "aller dans la chambre",
@@ -287,7 +287,7 @@ const chaptersObj = {
     chambre_trip: {
         subtitle: "la chambre",
         text: "je ressens la force de ma détresse",
-        img: "",
+        img: "assets/image/chambre_2.jpg",
         options: [
             ({
                 text: "allé se coucher",
@@ -316,7 +316,7 @@ const chaptersObj = {
     couloir_trip: {
         subtitle: "couloir",
         text: "je ne me rappel pas que mon appartement soit si grand.",
-        img: "",
+        img: "assets/image/couloir.jpg",
         options: [
             ({
                 text: "continuer",
@@ -335,7 +335,7 @@ const chaptersObj = {
     plaine: {
         subtitle: "je suis perdue",
         text: "",
-        img: "",
+        img: "assets/image/plaine.jpg",
         options: [
 
         ],
@@ -413,7 +413,7 @@ const chaptersObj = {
     canal_nouvelle: {
         subtitle: "les nouvelles",
         text: "toujours du négatif",
-        img: "assets/image/salon_3.jpg",
+        video: "assets/image/news.mp4",
         options: [
             ({
                 text: "zap",
@@ -479,7 +479,7 @@ const chaptersObj = {
     la_porte: {
         subtitle: "La porte",
         text: "Peut-être que c'est ma chance aujourd'hui",
-        img: "../assets/image/chambre.png",
+        img: "assets/image/chambre.png",
         options: [
             ({
                 text: "Sortir de la maison",
@@ -497,7 +497,7 @@ const chaptersObj = {
     la_fin: {
         subtitle: "*silence*",
         text: "Enfin, le délicieux silence de la fin.",
-        img: "../assets/image/chambre.png",
+        img: "assets/image/chambre.png",
         options: [
             ({
                 text: "partie terminé",
@@ -515,7 +515,7 @@ const chaptersObj = {
     exterieur: {
         subtitle: "L'extérieur",
         text: "Le soleil m'éblouit, je ne pensais jamais revoir l'extérieur.",
-        img: "../assets/image/chambre.png",
+        img: "assets/image/chambre.png",
     }
 
 };
@@ -525,29 +525,38 @@ function goToChapter(chapterName) {
     console.log(titreChapitre);
 
     const chapitre = chaptersObj[chapterName];
-    console.log(chapitre);
+    console.log(chapitre.subtitle);
 
     titreChapitre.textContent = chapitre.subtitle;
     document.querySelector('.texte').textContent = chapitre.text;
-    document.querySelector('.image').src = chapitre.img;
+    // document.querySelector('.image').src = chapitre.img;
 
     let barreOption = document.querySelector('.barre_option');
     let optionsArr = chapitre.options;
 
-    let element = ""; 
+    let element = "";
 
     for (let index = 0; index < optionsArr.length; index++) {
         console.log(optionsArr[index].text);
-        element += `<button onclick="${optionsArr[index].action}">${optionsArr[index].text}</button>`; 
+        element += `<button onclick="${optionsArr[index].action}">${optionsArr[index].text}</button>`;
         }
     barreOption.innerHTML = element;
-    
-    
-    
 
-    // if (chapitre[2] = video) {
-    //     console.log('allo');
-    // }
+       console.log(chapitre.video);
+       console.log(chapitre.img);
+
+    let imgDiv = document.querySelector('.img');
+
+    if (chapitre.video != undefined) {
+        element = `<video src="${chapitre.video}" class="video" autoplay loop muted></video>`;
+        imgDiv.innerHTML = element;
+    }
+    if (chapitre.img != undefined) {
+        element = `<img class="image" src="${chapitre.img}" alt="image">`;
+        imgDiv.innerHTML = element;
+    }
+
+    const sfx = new Audio('assets/mp3/sound_effect.wav');
+    sfx.play();
 };
-
 goToChapter('la_chambre');
