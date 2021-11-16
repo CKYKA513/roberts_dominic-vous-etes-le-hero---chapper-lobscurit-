@@ -1,24 +1,4 @@
-console.log("allo");
 
-let candyBought = false;
-
-function buyCandy() {
-    candyBought = true;
-
-    const sfx = new Audio('assets/mp3/sound_effect.wav');
-    sfx.play();
-}
-
-function actionSpecialBonbon() {
-    if (candyBought == true) {
-        goToChapter('le_salon_avec_bonbon');
-    } else {
-        goToChapter('le_salon_sans_bonbon');
-    }
-    
-    const sfx = new Audio('assets/mp3/sound_effect.wav');
-    sfx.play();
-}
 
 const chaptersObj = {
 
@@ -611,12 +591,45 @@ const chaptersObj = {
 
 };
 
+let body = document.querySelector('body');
+
+let chapitreNom = localStorage.getItem('chapterName');
+
+let bonbonAchete = localStorage.getItem('candy_bought');
+
+document.addEventListener('DOMContentLoaded', function() {
+    if (chapitreNom != undefined) {
+        goToChapter(chapitreNom);
+    };
+    if (bonbonAchete != undefined) {
+        candyBought = true;
+    };
+});
+
+let candyBought = false;
+
+function buyCandy() {
+    candyBought = true;
+    localStorage.setItem('candy_bought', candyBought);
+    const sfx = new Audio('assets/mp3/sound_effect.wav');
+    sfx.play();
+}
+
+function actionSpecialBonbon() {
+    if (candyBought == true) {
+        goToChapter('le_salon_avec_bonbon');
+    } else {
+        goToChapter('le_salon_sans_bonbon');
+    }
+    
+    const sfx = new Audio('assets/mp3/sound_effect.wav');
+    sfx.play();
+}
+
 function goToChapter(chapterName) {
     let titreChapitre = document.querySelector('.titre_chapitre');
-    console.log(titreChapitre);
 
     const chapitre = chaptersObj[chapterName];
-    console.log(chapitre.subtitle);
 
     titreChapitre.textContent = chapitre.subtitle;
     document.querySelector('.texte').textContent = chapitre.text;
@@ -628,13 +641,9 @@ function goToChapter(chapterName) {
     let element = "";
 
     for (let index = 0; index < optionsArr.length; index++) {
-        console.log(optionsArr[index].text);
         element += `<button onclick="${optionsArr[index].action}">${optionsArr[index].text}</button>`;
         }
     barreOption.innerHTML = element;
-
-       console.log(chapitre.video);
-       console.log(chapitre.img);
 
     let imgDiv = document.querySelector('.img');
 
@@ -649,5 +658,8 @@ function goToChapter(chapterName) {
 
     const sfx = new Audio('assets/mp3/sound_effect.wav');
     sfx.play();
+
+    localStorage.setItem('chapterName', chapterName);
+    console.log(localStorage.getItem('chapterName'));
 };
 goToChapter('la_chambre');
