@@ -32,6 +32,12 @@ body {
     font-size: 60px;
 }
 
+.text {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .texte {
     width: 500px;
     color: var(--gris);

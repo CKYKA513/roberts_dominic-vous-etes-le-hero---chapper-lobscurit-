@@ -25,6 +25,10 @@ const chaptersObj = {
                 text: "Allé dans le salon",
                 action: "actionSpecialBonbon()",
             },
+            {
+                text: "prendre la porte",
+                action: "goToChapter('la_porte')",
+            },
           ],
     },
 
@@ -147,6 +151,10 @@ const chaptersObj = {
                 text: "retourner dans la chambre",
                 action: "goToChapter('la_chambre')",
             },
+            {
+                text: "prendre la porte",
+                action: "goToChapter('la_porte')",
+            },
         ],
     },
 
@@ -173,37 +181,32 @@ const chaptersObj = {
         options: [
             {
                 text: "doctor peper",
-                action: "",
+                action: "eat()",
             },
             {
                 text: "saucisson",
-                action: "",
+                action: "eat()",
             },
             {
                 text: "soda",
-                action: "",
+                action: "eat()",
             },
             {
                 text: "restant",
-                action: "",
+                action: "eat()",
             },
             {
                 text: "laitue",
-                action: "",
+                action: "eat()",
             },
             {
                 text: "pain",
-                action: "",
+                action: "eat()",
             },
             {
                 text: "retour",
                 action: "goToChapter('la_cuisine')",
             },
-
-            // le joueur devrait pouvoir prendre de la nourriture
-            // chaque option est un aliment
-            // le joueur a un meter et lorsqu'il atteint 0
-            // le personnage vomit et se réveille dans la chambre
         ],
     },
 
@@ -239,6 +242,10 @@ const chaptersObj = {
                 text: "aller dans la chambre",
                 action: "goToChapter('la_chambre')",
             },
+            {
+                text: "prendre la porte",
+                action: "goToChapter('la_porte')",
+            },
         ],
     },
 
@@ -263,6 +270,10 @@ const chaptersObj = {
             {
                 text: "aller dans la chambre",
                 action: "goToChapter('la_chambre')",
+            },
+            {
+                text: "prendre la porte",
+                action: "goToChapter('la_porte')",
             },
         ],
     },
@@ -360,11 +371,11 @@ const chaptersObj = {
         options: [
             {
                 text: "continuer",
-                action: "",
+                action: "goToChapter('plaine')",
             },
             {
                 text: "reculer",
-                action: "salon_trip",
+                action: "goToChapter('salon_trip')",
             },
         ],
     },
@@ -374,28 +385,64 @@ const chaptersObj = {
     // img: plaine.jpg
     plaine: {
         subtitle: "je suis perdue",
-        text: "",
+        text: "...",
         img: "assets/image/plaine.jpg",
         options: [
             {
-                text: "continuer",
+                text: "marcher vers l'horizon",
                 action: "gToChapter('horizon')",
             },
             {
                 text: "s'arrêter",
-                action: "goToChapter('la_table')",
+                action: "goToChapter('meubles')",
             },
         ],
     },
 
     // no-finito start
+    // image: meubles.jpg
+    meubles: {
+        subtitle: "ces meubles",
+        text: "ce sont ceux de chez mes parents",
+        img: "assets/image/meubles.jpg",
+        options: [
+            {
+                text: "s'assoir sur une des chaises",
+                action: "goToChapter('abandon')",
+            },
+            {
+                text: "marcher vers l'horizon",
+                action: "goToChapter('horizon')",
+            },
+        ],
+    },
 
-    la_table: {
-        subtitle: "",
+    abandon: {
+        subtitle: "mon père est partie",
+        text: "je suis seul",
+        img: "assets/image/noir.png",
+        options: [
+            {
+                text: "continuer d'avancer",
+                action: "continuerAvancer()",
+            },
+            {
+                text: "s'arrêté et attendre",
+                action: "goToChapter('la_chambre')",
+            },
+        ],
     },
 
     horizon: {
-        subtitle: "",
+        subtitle: "j'ai tellement soif",
+        text: "je me meurs",
+        img: "assets/image/desert.jpg",
+        options: [
+            {
+                text: "mourrir",
+                action: "goToChapter('la_fin')",
+            },
+        ],
     },
 
     // end
@@ -551,11 +598,7 @@ const chaptersObj = {
         options: [
             {
                 text: "Sortir de la maison",
-                action: "goToChapter('la_vie')",
-            },
-            {
-                text: "Allé",
-                action: "goToChapter('la_chambre')",
+                action: "actionSpecialPorte()",
             },
         ],
     },
@@ -566,7 +609,7 @@ const chaptersObj = {
     la_fin: {
         subtitle: "*silence*",
         text: "Enfin, le délicieux silence de la fin.",
-        img: "assets/image/noir.jpg",
+        img: "assets/image/noir.png",
         options: [
             {
                 text: "partie terminé",
@@ -579,32 +622,67 @@ const chaptersObj = {
     partie_terminée: {
         subtitle: "partie terminée",
         text: "Merci d'avoir joué à ce jeu",
-        img: "assets/image/noir.jpg",
+        img: "assets/image/noir.png",
+        options: [
+            {
+                text: "recommencer",
+                action: "recommencer()",
+            },
+        ],
     },
 
 
     exterieur: {
         subtitle: "L'extérieur",
         text: "Le soleil m'éblouit, je ne pensais jamais revoir l'extérieur.",
-        img: "assets/image/chambre.png",
-    }
-
+        img: "assets/image/parc.jpg",
+        options: [
+            {
+                text: "terminer la partie",
+                action: "goToChapter('partie_terminée')",
+            },
+        ],
+    },
 };
 
 let body = document.querySelector('body');
-
 let chapitreNom = localStorage.getItem('chapterName');
-
 let bonbonAchete = localStorage.getItem('candy_bought');
+let manger = localStorage.getItem('feed');
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {   
     if (chapitreNom != undefined) {
         goToChapter(chapitreNom);
     };
     if (bonbonAchete != undefined) {
-        candyBought = true;
+        candyBought = bonbonAchete;
+    };
+    if (manger != undefined) {
+        feed = manger;
     };
 });
+
+function recommencer() {
+    goToChapter('la_chambre');
+    candyBought = false;
+    feed = 0;
+    avancer = false;
+    localStorage.clear();
+}
+
+let feed = 0;
+
+function eat() {
+    feed++;
+    localStorage.setItem('feed', feed);
+    if (feed == 5) {
+        goToChapter('dormir');
+        feed = 0;
+        localStorage.remove('feed');
+    };
+    const sfx = new Audio('assets/mp3/sound_effect.wav');
+    sfx.play();
+};
 
 let candyBought = false;
 
@@ -620,10 +698,22 @@ function actionSpecialBonbon() {
         goToChapter('le_salon_avec_bonbon');
     } else {
         goToChapter('le_salon_sans_bonbon');
+    };
+}
+
+let avancer = false;
+
+function continuerAvancer() {
+    avancer = true;
+    goToChapter('la_chambre');
+}
+
+function actionSpecialPorte() {
+    if (avancer == true) {
+        goToChapter('exterieur');
+    } else {
+        goToChapter('la_fin');
     }
-    
-    const sfx = new Audio('assets/mp3/sound_effect.wav');
-    sfx.play();
 }
 
 function goToChapter(chapterName) {
@@ -642,7 +732,7 @@ function goToChapter(chapterName) {
 
     for (let index = 0; index < optionsArr.length; index++) {
         element += `<button onclick="${optionsArr[index].action}">${optionsArr[index].text}</button>`;
-        }
+        };
     barreOption.innerHTML = element;
 
     let imgDiv = document.querySelector('.img');
@@ -650,11 +740,11 @@ function goToChapter(chapterName) {
     if (chapitre.video != undefined) {
         element = `<video src="${chapitre.video}" class="video" autoplay loop muted></video>`;
         imgDiv.innerHTML = element;
-    }
+    };
     if (chapitre.img != undefined) {
         element = `<img class="image" src="${chapitre.img}" alt="image">`;
         imgDiv.innerHTML = element;
-    }
+    };
 
     const sfx = new Audio('assets/mp3/sound_effect.wav');
     sfx.play();
@@ -662,4 +752,6 @@ function goToChapter(chapterName) {
     localStorage.setItem('chapterName', chapterName);
     console.log(localStorage.getItem('chapterName'));
 };
+
+
 goToChapter('la_chambre');
