@@ -1,5 +1,3 @@
-
-
 const chaptersObj = {
 
     //la chambre
@@ -31,7 +29,7 @@ const chaptersObj = {
             },
           ],
     },
-
+  
     // img: noir.png
     le_lit: {
         subtitle: "Le lit",
@@ -44,7 +42,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // img: noir.png
     dormir: {
         subtitle: "Faites de beaux rêves",
@@ -57,9 +55,9 @@ const chaptersObj = {
             }
         ]
     },
-
+  
     // internet
-
+  
     // img: reseaux_sociaux.png
     reseaux_sociaux: {
         subtitle: "reseaux sociaux",
@@ -80,7 +78,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // img: image_board.jpg
     image_board: {
         subtitle: "image board",
@@ -101,7 +99,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // img: silk_road.jpg
     silk_road: {
         subtitle: "silk road",
@@ -127,7 +125,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // la cuisine
     // img: cuisine.jpg
     la_cuisine: {
@@ -157,7 +155,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // img: couteau.jpg
     le_couteau: {
         subtitle: "Le couteau",
@@ -170,9 +168,9 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // mini-jeu du frigo
-
+  
     // img: fridge.jpg
     le_frigo: {
         subtitle: "Le frigo",
@@ -209,7 +207,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // img: vomi.jpg
     vomi: {
         subtitle: "BEEEUUUUAAARRRGGH!!!!!",
@@ -222,7 +220,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // le salon
     // img: salon_3.jpg
     le_salon_sans_bonbon: {
@@ -248,7 +246,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // img: salon_3.jpg
     le_salon_avec_bonbon: {
         subtitle: "Le salon avec bonbon",
@@ -277,9 +275,9 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // trip
-
+  
     // img: bonbon.jpg
     bonbon: {
         subtitle: "Bonbon",
@@ -296,7 +294,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // img: salon_3.jpg
     salon_trip: {
         subtitle: "salon",
@@ -317,7 +315,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // img: chambre_2.jpg
     chambre_trip: {
         subtitle: "la chambre",
@@ -335,17 +333,17 @@ const chaptersObj = {
             
         ],
     },
-
+  
     // no-finito start
-
+  
     ordinateur_trip: {
         subtitle: "ordinateur",
         text: "",
         image: "",
     },
-
+  
     // end
-
+  
     // img: noir.png
     lit_trip: {
         subtitle: "quoi faire?",
@@ -362,7 +360,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // img: couloir.jpg
     couloir_trip: {
         subtitle: "couloir",
@@ -379,9 +377,9 @@ const chaptersObj = {
             },
         ],
     },
-
-//  inconscient
-
+  
+  //  inconscient
+  
     // img: plaine.jpg
     plaine: {
         subtitle: "je suis perdue",
@@ -398,7 +396,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // no-finito start
     // image: meubles.jpg
     meubles: {
@@ -416,7 +414,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     abandon: {
         subtitle: "mon père est partie",
         text: "je suis seul",
@@ -432,7 +430,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     horizon: {
         subtitle: "j'ai tellement soif",
         text: "je me meurs",
@@ -444,11 +442,11 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // end
-
-//  souvenir tv
-
+  
+  //  souvenir tv
+  
     // video: plage.mp4
     souvenir_un: {
         subtitle: "la plage",
@@ -465,7 +463,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // video: rando.mp4
     souvenir_deux: {
         subtitle: "randonné",
@@ -482,7 +480,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // video: graduation.mp4
     souvenir_trois: {
         subtitle: "graduation",
@@ -499,7 +497,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // video: marriage.mp4
     souvenir_quatre: {
         subtitle: "la journée de mon marriage",
@@ -516,9 +514,9 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // tv
-
+  
     // img: news.gif
     canal_nouvelle: {
         subtitle: "les nouvelles",
@@ -535,7 +533,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // video: nature.mp4
     canal_nature: {
         subtitle: "canal nature",
@@ -552,7 +550,7 @@ const chaptersObj = {
             },
         ]
     },
-
+  
     // video: cartoon.mp4
     canal_cartoon: {
         subtitle: "cartoon network",
@@ -569,7 +567,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // video: reality.mp4
     canal_reality: {
         subtitle: "a reality show",
@@ -586,10 +584,10 @@ const chaptersObj = {
             },
         ],
     },
-
-
+  
+  
     // vers la fin
-
+  
     // img: porte.jpg
     la_porte: {
         subtitle: "La porte",
@@ -602,9 +600,9 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     //fin
-
+  
     // img: noir.jpg
     la_fin: {
         subtitle: "*silence*",
@@ -617,7 +615,7 @@ const chaptersObj = {
             },
         ],
     },
-
+  
     // img: noir.jpg
     partie_terminée: {
         subtitle: "partie terminée",
@@ -630,8 +628,8 @@ const chaptersObj = {
             },
         ],
     },
-
-
+  
+  
     exterieur: {
         subtitle: "L'extérieur",
         text: "Le soleil m'éblouit, je ne pensais jamais revoir l'extérieur.",
@@ -643,36 +641,39 @@ const chaptersObj = {
             },
         ],
     },
-};
-
-let body = document.querySelector('body');
-let chapitreNom = localStorage.getItem('chapterName');
-let bonbonAchete = localStorage.getItem('candy_bought');
-let manger = localStorage.getItem('feed');
-
-document.addEventListener('DOMContentLoaded', function() {   
-    if (chapitreNom != undefined) {
-        goToChapter(chapitreNom);
-    };
-    if (bonbonAchete != undefined) {
-        candyBought = bonbonAchete;
-    };
-    if (manger != undefined) {
-        feed = manger;
-    };
-});
-
-function recommencer() {
+  };
+  
+  const sfx = new Audio('assets/mp3/sound_effect.wav');
+  let body = document.querySelector('body');
+  
+  let chapter = 'la_chambre';
+  let chapitreNom = localStorage.getItem('chapterName');
+  if (chapitreNom != undefined) {
+    chapter = chapitreNom;
+  } 
+  goToChapter(chapter);
+  
+  let candyBought = false;
+  let bonbonAchete = localStorage.getItem('candy_bought');
+  if (bonbonAchete != undefined) {
+    candyBought = bonbonAchete;
+  };
+  
+  let feed = 0;
+  let manger = localStorage.getItem('feed');
+  if (manger != undefined) {
+    feed = manger;
+  };
+  
+  function recommencer() {
     goToChapter('la_chambre');
     candyBought = false;
     feed = 0;
     avancer = false;
     localStorage.clear();
-}
-
-let feed = 0;
-
-function eat() {
+  }
+  
+  function eat() {
     feed++;
     localStorage.setItem('feed', feed);
     if (feed == 5) {
@@ -680,78 +681,72 @@ function eat() {
         feed = 0;
         localStorage.remove('feed');
     };
-    const sfx = new Audio('assets/mp3/sound_effect.wav');
+  
     sfx.play();
-};
-
-let candyBought = false;
-
-function buyCandy() {
+  };
+  
+  function buyCandy() {
     candyBought = true;
     localStorage.setItem('candy_bought', candyBought);
-    const sfx = new Audio('assets/mp3/sound_effect.wav');
     sfx.play();
-}
-
-function actionSpecialBonbon() {
+  }
+  
+  function actionSpecialBonbon() {
     if (candyBought == true) {
         goToChapter('le_salon_avec_bonbon');
     } else {
         goToChapter('le_salon_sans_bonbon');
     };
-}
-
-let avancer = false;
-
-function continuerAvancer() {
+  }
+  
+  let avancer = false;
+  
+  function continuerAvancer() {
     avancer = true;
     goToChapter('la_chambre');
-}
-
-function actionSpecialPorte() {
+  }
+  
+  function actionSpecialPorte() {
     if (avancer == true) {
         goToChapter('exterieur');
     } else {
         goToChapter('la_fin');
     }
-}
-
-function goToChapter(chapterName) {
+  }
+  
+  function goToChapter(chapterName) {
     let titreChapitre = document.querySelector('.titre_chapitre');
-
+  
     const chapitre = chaptersObj[chapterName];
-
+  
     titreChapitre.textContent = chapitre.subtitle;
     document.querySelector('.texte').textContent = chapitre.text;
     // document.querySelector('.image').src = chapitre.img;
-
+  
     let barreOption = document.querySelector('.barre_option');
     let optionsArr = chapitre.options;
-
+  
     let element = "";
-
+  
     for (let index = 0; index < optionsArr.length; index++) {
         element += `<button onclick="${optionsArr[index].action}">${optionsArr[index].text}</button>`;
-        };
+    };
     barreOption.innerHTML = element;
-
+  
     let imgDiv = document.querySelector('.img');
-
+  
     if (chapitre.video != undefined) {
         element = `<video src="${chapitre.video}" class="video" autoplay loop muted></video>`;
         imgDiv.innerHTML = element;
     };
+  
     if (chapitre.img != undefined) {
         element = `<img class="image" src="${chapitre.img}" alt="image">`;
         imgDiv.innerHTML = element;
     };
-
-    const sfx = new Audio('assets/mp3/sound_effect.wav');
+  
     sfx.play();
-
+  
     localStorage.setItem('chapterName', chapterName);
     console.log(localStorage.getItem('chapterName'));
-};
-
-
-goToChapter('la_chambre');
+  };
