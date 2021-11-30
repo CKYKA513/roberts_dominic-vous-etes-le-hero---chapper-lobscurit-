@@ -625,8 +625,8 @@ const chaptersObj = {
         img: "assets/image/noir.png",
         options: [
             {
-                text: "recommencer",
-                action: "recommencer()",
+                text: "Recommencer",
+                action: "reset()",
             },
         ],
     },
@@ -662,13 +662,23 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 });
 
-function recommencer() {
+let partieDel = document.querySelector('.reset');
+partieDel.addEventListener('click', () => reset());
+
+function reset() {
     goToChapter('la_chambre');
     candyBought = false;
     feed = 0;
     avancer = false;
     localStorage.clear();
 }
+
+let audio = true;
+let sonChb = document.querySelector('.son');
+
+sonChb.addEventListener('change', () => {
+    audio = sonChb.checked
+})
 
 let feed = 0;
 
@@ -681,7 +691,10 @@ function eat() {
         localStorage.remove('feed');
     };
     const sfx = new Audio('assets/mp3/sound_effect.wav');
-    sfx.play();
+    if (audio == true) {
+        sfx.play();
+    }
+    
 };
 
 let candyBought = false;
@@ -690,7 +703,9 @@ function buyCandy() {
     candyBought = true;
     localStorage.setItem('candy_bought', candyBought);
     const sfx = new Audio('assets/mp3/sound_effect.wav');
-    sfx.play();
+    if (audio == true) {
+        sfx.play();
+    }
 }
 
 function actionSpecialBonbon() {
@@ -747,7 +762,9 @@ function goToChapter(chapterName) {
     };
 
     const sfx = new Audio('assets/mp3/sound_effect.wav');
-    sfx.play();
+    if (audio == true) {
+        sfx.play();
+    }
 
     localStorage.setItem('chapterName', chapterName);
     console.log(localStorage.getItem('chapterName'));

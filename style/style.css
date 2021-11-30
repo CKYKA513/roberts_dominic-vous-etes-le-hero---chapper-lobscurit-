@@ -70,3 +70,9 @@ button:hover {
     color: var(--noir);
     background-color: var(--blanc);
 }
+
+.reset {
+    height: 5vh;
+    width: 10vw;
+    margin: 5vw;
+}
