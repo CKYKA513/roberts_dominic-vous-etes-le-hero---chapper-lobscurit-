@@ -4,6 +4,7 @@
     --gris_pale: #707070;
     --blanc: #fff;
     --noir: #000;
+    --rose: #ffb0b0;
 }
 
 body {
@@ -75,4 +76,12 @@ button:hover {
     height: 5vh;
     width: 10vw;
     margin: 5vw;
+}
+
+.la_porte {
+    background-color: var(--blanc);
+}
+
+.le_frigo {
+    background-color: var(--rose);
 }

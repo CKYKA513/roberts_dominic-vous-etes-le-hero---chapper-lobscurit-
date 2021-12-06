@@ -734,6 +734,9 @@ function actionSpecialPorte() {
 function goToChapter(chapterName) {
     let titreChapitre = document.querySelector('.titre_chapitre');
 
+    let body = document.querySelector('body');
+    body.className = chapterName;
+
     const chapitre = chaptersObj[chapterName];
 
     titreChapitre.textContent = chapitre.subtitle;
