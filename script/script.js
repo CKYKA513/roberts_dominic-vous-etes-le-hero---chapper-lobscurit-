@@ -325,26 +325,12 @@ const chaptersObj = {
         img: "assets/image/chambre_2.jpg",
         options: [
             {
-                text: "ordinateur",
-                action: "goToChapter('ordinateur_trip')",
-            },
-            {
                 text: "allé se coucher",
                 action: "goToChapter('lit_trip')",
             },
             
         ],
     },
-
-    // no-finito start
-
-    ordinateur_trip: {
-        subtitle: "ordinateur",
-        text: "",
-        image: "",
-    },
-
-    // end
 
     // img: noir.png
     lit_trip: {
